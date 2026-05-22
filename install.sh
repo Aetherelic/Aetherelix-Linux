@@ -96,14 +96,14 @@ install_flatpak_list() {
   [ -f "$file" ] || return 0
   command -v flatpak >/dev/null 2>&1 || return 0
 
-  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
   while IFS= read -r app; do
     case "$app" in
       ""|\#*) continue ;;
     esac
 
-    flatpak install -y flathub "$app" || true
+    flatpak install --user -y flathub "$app" || true
   done < "$file"
 }
 
