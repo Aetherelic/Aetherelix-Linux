@@ -21,7 +21,7 @@ firstboot --disable
 
 bootloader --location=mbr
 clearpart --all --initlabel
-autopart --type=btrfs
+part / --fstype=ext4 --size=10000
 
 reboot
 
