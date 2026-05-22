@@ -1,0 +1,4 @@
+jetbrains-mono-fonts
+fontawesome-fonts
+papirus-icon-theme
+swaybg

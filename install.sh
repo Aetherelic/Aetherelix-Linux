@@ -117,6 +117,13 @@ copy_config_dir() {
   fi
 }
 
+install_wallpapers() {
+  if [ -d "$ROOT_DIR/branding/wallpapers" ] && [ "$(find "$ROOT_DIR/branding/wallpapers" -mindepth 1 | wc -l)" -gt 0 ]; then
+    mkdir -p "$HOME/.local/share/backgrounds/aetherelix"
+    cp -r "$ROOT_DIR/branding/wallpapers/." "$HOME/.local/share/backgrounds/aetherelix/"
+  fi
+}
+
 sudo dnf upgrade --refresh -y
 sudo dnf install -y dnf-plugins-core
 
@@ -134,6 +141,7 @@ sudo dnf group upgrade -y core || true
 
 install_package_list "$ROOT_DIR/packages/base.txt"
 install_package_list "$ROOT_DIR/packages/desktop-common.txt"
+install_package_list "$ROOT_DIR/packages/visual.txt"
 install_optional_package_list "$ROOT_DIR/packages/wallpaper-optional.txt"
 
 if [ "$INSTALL_HYPRLAND" -eq 1 ]; then
@@ -156,6 +164,7 @@ copy_config_dir kitty
 copy_config_dir waybar
 copy_config_dir fastfetch
 copy_config_dir starship
+install_wallpapers
 
 systemctl --user daemon-reload 2>/dev/null || true
 
