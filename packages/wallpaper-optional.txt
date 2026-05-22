@@ -1,0 +1,3 @@
+# Optional wallpaper tools.
+# Availability can vary depending on Fedora repos/COPRs.
+hyprpaper

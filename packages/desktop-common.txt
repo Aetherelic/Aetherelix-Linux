@@ -2,7 +2,6 @@ kitty
 rofi-wayland
 waybar
 swaync
-hyprpaper
 hyprlock
 hypridle
 xdg-desktop-portal
