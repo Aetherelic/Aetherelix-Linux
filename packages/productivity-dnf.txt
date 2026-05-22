@@ -1,0 +1,5 @@
+libreoffice
+thunderbird
+podman
+distrobox
+gh

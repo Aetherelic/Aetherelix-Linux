@@ -1,0 +1,2 @@
+hyprland
+xdg-desktop-portal-hyprland
