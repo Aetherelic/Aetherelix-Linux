@@ -6,19 +6,31 @@ if ! command -v dnf >/dev/null 2>&1; then
   exit 1
 fi
 
-sudo dnf install -y \
-  lorax \
-  lorax-lmc-virt \
-  lorax-lmc-novirt \
-  pykickstart \
-  spin-kickstarts \
-  mock \
-  git \
-  qemu-kvm \
+REQUIRED_PACKAGES=(
+  lorax
+  lorax-lmc-virt
+  lorax-lmc-novirt
+  pykickstart
+  mock
+  git
+  qemu-kvm
   virt-install
+)
+
+OPTIONAL_PACKAGES=(
+  spin-kickstarts
+)
+
+for pkg in "${REQUIRED_PACKAGES[@]}"; do
+  sudo dnf install -y "$pkg"
+done
+
+for pkg in "${OPTIONAL_PACKAGES[@]}"; do
+  sudo dnf install -y "$pkg" || printf "Optional package skipped: %s\n" "$pkg"
+done
 
 if ! command -v livemedia-creator >/dev/null 2>&1; then
-  printf "livemedia-creator was not found after installing lorax.\n"
+  printf "livemedia-creator was not found after installing Fedora image tools.\n"
   exit 1
 fi
 
