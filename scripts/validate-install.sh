@@ -34,8 +34,12 @@ done
 
 grep -q "mate-polkit" packages/desktop-common.txt
 grep -q "hyprpaper" packages/wallpaper-optional.txt
-grep -q "bind = CTRL ALT, T" configs/hypr/hyprland.conf
-grep -q "bind = ALT, SPACE" configs/hypr/hyprland.conf
+grep -q 'bind = $mainMod, RETURN' configs/hypr/hyprland.conf
+grep -q 'bind = ALT, SPACE' configs/hypr/hyprland.conf
+grep -q 'bind = CTRL ALT, T' configs/hypr/hyprland.conf
+grep -q 'bind = $mainMod, R' configs/hypr/hyprland.conf
+grep -q 'bind = $mainMod, M' configs/hypr/hyprland.conf
+grep -q 'bind = $mainMod, Q' configs/hypr/hyprland.conf
 grep -q "exec-once = waybar" configs/hypr/hyprland.conf
 grep -q "copy_config_dir waybar" install.sh
 grep -q "install_wallpapers" install.sh
