@@ -65,15 +65,44 @@ copy_config_dir() {
 
 install_installer_shortcut() {
   local target_home="$1"
+  local target_user
+  target_user="$(basename "$target_home")"
 
-  mkdir -p "$target_home/Desktop" "$target_home/.local/share/applications"
+  mkdir -p /usr/local/bin /etc/sudoers.d "$target_home/Desktop" "$target_home/.local/share/applications"
+
+  cat > /usr/local/bin/kaizen-calamares-root <<'ROOTWRAP'
+#!/usr/bin/env bash
+set -euo pipefail
+
+export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-wayland;xcb}"
+
+exec /usr/bin/calamares
+ROOTWRAP
+
+  cat > /usr/local/bin/install-kaizen-linux <<'USERWRAP'
+#!/usr/bin/env bash
+set -euo pipefail
+
+export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-wayland;xcb}"
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+
+exec sudo -E /usr/local/bin/kaizen-calamares-root
+USERWRAP
+
+  chmod 755 /usr/local/bin/kaizen-calamares-root /usr/local/bin/install-kaizen-linux
+
+  cat > /etc/sudoers.d/kaizen-installer <<SUDOERS
+${target_user} ALL=(root) NOPASSWD:SETENV: /usr/local/bin/kaizen-calamares-root
+SUDOERS
+
+  chmod 440 /etc/sudoers.d/kaizen-installer
 
   cat > "$target_home/Desktop/install-kaizen-linux.desktop" <<'DESKTOP'
 [Desktop Entry]
 Type=Application
 Name=Install Kaizen Linux
 Comment=Install Kaizen Linux to disk
-Exec=pkexec calamares
+Exec=/usr/local/bin/install-kaizen-linux
 Icon=system-software-install
 Terminal=false
 Categories=System;
