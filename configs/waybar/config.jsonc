@@ -4,22 +4,9 @@
   "height": 34,
   "spacing": 8,
 
-  "modules-left": [
-    "custom/logo",
-    "hyprland/workspaces"
-  ],
-
-  "modules-center": [
-    "clock"
-  ],
-
-  "modules-right": [
-    "pulseaudio",
-    "network",
-    "memory",
-    "cpu",
-    "tray"
-  ],
+  "modules-left": ["custom/logo", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "memory", "cpu", "tray"],
 
   "custom/logo": {
     "format": "Aetherelix",
@@ -48,8 +35,7 @@
   "network": {
     "format-wifi": "NET {essid}",
     "format-ethernet": "NET wired",
-    "format-disconnected": "NET off",
-    "tooltip-format": "{ifname}"
+    "format-disconnected": "NET off"
   },
 
   "memory": {

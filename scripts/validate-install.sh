@@ -2,7 +2,6 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-
 cd "$ROOT_DIR"
 
 bash -n install.sh
@@ -33,15 +32,14 @@ done
 
 grep -q "mate-polkit" packages/desktop-common.txt
 grep -q "hyprpaper" packages/wallpaper-optional.txt
+grep -q "bind = CTRL ALT, T" configs/hypr/hyprland.conf
+grep -q "bind = ALT, SPACE" configs/hypr/hyprland.conf
+grep -q "exec-once = waybar" configs/hypr/hyprland.conf
+grep -q "copy_config_dir waybar" install.sh
 
 if grep -qE "^(swww|polkit-gnome)$" packages/desktop-common.txt; then
   printf "Deprecated Fedora-incompatible package found in desktop-common.txt\n"
   exit 1
 fi
-
-grep -q "bind = CTRL ALT, T" configs/hypr/hyprland.conf
-grep -q "bind = ALT, SPACE" configs/hypr/hyprland.conf
-grep -q "exec-once = waybar" configs/hypr/hyprland.conf
-grep -q "copy_config_dir waybar" install.sh
 
 printf "Aetherelix validation passed.\n"
