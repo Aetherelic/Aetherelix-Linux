@@ -35,6 +35,10 @@ bash-completion
 dnf-plugins-core
 flatpak
 dracut-live
+grub2-pc
+grub2-pc-modules
+grub2-efi-x64
+shim-x64
 %end
 
 %post --log=/root/kaizen-post.log
