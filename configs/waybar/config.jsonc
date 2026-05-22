@@ -1,0 +1,66 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 8,
+
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "memory",
+    "cpu",
+    "tray"
+  ],
+
+  "custom/logo": {
+    "format": "Aetherelix",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "pulseaudio": {
+    "format": "VOL {volume}%",
+    "format-muted": "MUTED",
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+
+  "network": {
+    "format-wifi": "NET {essid}",
+    "format-ethernet": "NET wired",
+    "format-disconnected": "NET off",
+    "tooltip-format": "{ifname}"
+  },
+
+  "memory": {
+    "format": "RAM {percentage}%"
+  },
+
+  "cpu": {
+    "format": "CPU {usage}%"
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}

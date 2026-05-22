@@ -153,6 +153,7 @@ copy_config_dir hypr
 copy_config_dir quickshell
 copy_config_dir rofi
 copy_config_dir kitty
+copy_config_dir waybar
 copy_config_dir fastfetch
 copy_config_dir starship
 

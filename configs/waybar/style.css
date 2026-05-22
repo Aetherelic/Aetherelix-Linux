@@ -1,0 +1,56 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrains Mono", "Noto Sans", sans-serif;
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(11, 13, 18, 0.82);
+  color: #e5e9f0;
+}
+
+#custom-logo {
+  margin: 6px 0 6px 10px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(136, 192, 208, 0.14);
+  color: #88c0d0;
+  font-weight: 700;
+}
+
+#workspaces {
+  margin: 6px 0;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#workspaces button {
+  margin: 0 2px;
+  padding: 0 8px;
+  border-radius: 999px;
+  color: #8b93a7;
+}
+
+#workspaces button.active {
+  color: #0b0d12;
+  background: #88c0d0;
+}
+
+#clock,
+#pulseaudio,
+#network,
+#memory,
+#cpu,
+#tray {
+  margin: 6px 0;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#tray {
+  margin-right: 10px;
+}

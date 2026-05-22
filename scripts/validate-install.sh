@@ -18,6 +18,13 @@ required_files=(
   "packages/productivity-flatpak.txt"
   "packages/wallpaper-optional.txt"
   "configs/hypr/hyprland.conf"
+  "configs/kitty/kitty.conf"
+  "configs/rofi/config.rasi"
+  "configs/rofi/aetherelix.rasi"
+  "configs/waybar/config.jsonc"
+  "configs/waybar/style.css"
+  "configs/fastfetch/config.jsonc"
+  "docs/FIRSTBOOT.md"
 )
 
 for file in "${required_files[@]}"; do
@@ -35,5 +42,6 @@ fi
 grep -q "bind = CTRL ALT, T" configs/hypr/hyprland.conf
 grep -q "bind = ALT, SPACE" configs/hypr/hyprland.conf
 grep -q "exec-once = waybar" configs/hypr/hyprland.conf
+grep -q "copy_config_dir waybar" install.sh
 
 printf "Aetherelix validation passed.\n"
