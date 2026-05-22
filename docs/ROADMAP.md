@@ -1,29 +1,45 @@
 # Roadmap
 
-## Milestone 1
+## Completed
 
-Create a working Fedora post-install script.
+### Milestone 1: Project skeleton
 
-## Milestone 2
+Created the initial Aetherelix Linux Fedora Hyprland project structure.
 
-Test inside a Fedora VM.
+### Milestone 2: Fedora VM test lab
 
-## Milestone 3
+Created a Fedora 44 VM and tested the installer safely.
 
-Add Hyprland config and login/session handling.
+### Milestone 3: Working Hyprland base
 
-## Milestone 4
+Confirmed that the installer can create a working Hyprland session on Fedora.
 
-Add AetherDeck / Quickshell.
+### Milestone 4: Base desktop visuals
 
-## Milestone 5
+Added Kitty, Rofi, Waybar, Fastfetch, fonts, wallpaper handling, and Aetherelix branding.
 
-Add gaming, productivity, and NVIDIA profiles.
+### Milestone 5: Package profiles
 
-## Milestone 6
+Confirmed productivity and gaming package profiles install successfully.
 
-Build a Fedora Remix ISO.
+## Next milestones
 
-## Milestone 7
+### Milestone 6: Repository cleanup and GitHub push
 
-Branding, website, screenshots, release docs.
+Clean duplicate commits, verify files, and push the project to GitHub.
+
+### Milestone 7: Kickstart prototype
+
+Create the first Fedora Kickstart file for automated installs.
+
+### Milestone 8: ISO build prototype
+
+Build the first bootable Aetherelix Fedora Remix ISO.
+
+### Milestone 9: NVIDIA and gaming kernel profiles
+
+Add optional NVIDIA setup and optional gaming kernel support.
+
+### Milestone 10: Quickshell / AetherDeck
+
+Add the advanced Aetherelix desktop shell experience.
