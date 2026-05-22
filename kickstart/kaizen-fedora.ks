@@ -33,6 +33,7 @@ wget
 bash-completion
 dnf-plugins-core
 flatpak
+dracut-live
 %end
 
 %post --log=/root/kaizen-post.log
