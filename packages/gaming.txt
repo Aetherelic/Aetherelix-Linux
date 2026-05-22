@@ -1,0 +1,10 @@
+steam
+lutris
+gamemode
+mangohud
+gamescope
+wine
+winetricks
+vulkan-tools
+mesa-vulkan-drivers
+mesa-dri-drivers

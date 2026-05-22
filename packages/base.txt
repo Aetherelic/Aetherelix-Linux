@@ -1,0 +1,14 @@
+git
+curl
+wget
+nano
+vim
+unzip
+p7zip
+rsync
+fastfetch
+btop
+neofetch
+stow
+bash-completion
+dnf-plugins-core

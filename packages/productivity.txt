@@ -1,0 +1,8 @@
+libreoffice
+thunderbird
+obsidian
+podman
+distrobox
+flatpak
+gh
+code
