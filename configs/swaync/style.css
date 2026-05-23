@@ -1,0 +1,39 @@
+* {
+  font-family: "JetBrains Mono", "Noto Sans", sans-serif;
+  font-size: 13px;
+}
+
+.control-center {
+  background: rgba(17, 17, 27, 0.92);
+  border: 1px solid rgba(167, 139, 250, 0.45);
+  border-radius: 18px;
+}
+
+.notification {
+  background: rgba(24, 24, 37, 0.94);
+  border: 1px solid rgba(137, 180, 250, 0.35);
+  border-radius: 16px;
+  margin: 8px;
+}
+
+.notification-content {
+  padding: 12px;
+}
+
+.close-button {
+  background: rgba(167, 139, 250, 0.8);
+  color: #11111b;
+  border-radius: 999px;
+}
+
+.widget-title {
+  color: #f4f4f5;
+  margin: 12px;
+}
+
+.widget-title button {
+  background: rgba(167, 139, 250, 0.85);
+  color: #11111b;
+  border-radius: 12px;
+  padding: 6px 12px;
+}
