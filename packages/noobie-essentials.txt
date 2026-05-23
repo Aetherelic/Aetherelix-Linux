@@ -1,0 +1,35 @@
+# Kaizen Linux beginner-friendly essentials
+
+# File management
+nautilus
+file-roller
+
+# Browsing / documents / media
+firefox
+evince
+eog
+celluloid
+
+# System settings / control
+gnome-disk-utility
+gnome-system-monitor
+pavucontrol
+blueman
+NetworkManager-tui
+
+# Screenshots / clipboard
+grim
+slurp
+swappy
+wl-clipboard
+cliphist
+
+# Fonts / icons already used by the rice
+fontawesome-fonts
+google-noto-sans-fonts
+google-noto-emoji-fonts
+jetbrains-mono-fonts
+papirus-icon-theme
+
+# Flatpak support
+flatpak
