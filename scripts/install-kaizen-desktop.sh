@@ -65,9 +65,8 @@ copy_config_dir() {
   local name="$1"
 
   if [ -d "$ROOT_DIR/configs/$name" ] && [ "$(find "$ROOT_DIR/configs/$name" -mindepth 1 | wc -l)" -gt 0 ]; then
-    mkdir -p "$TARGET_HOME/.config"
-    rm -rf "$TARGET_HOME/.config/$name"
-    cp -r "$ROOT_DIR/configs/$name" "$TARGET_HOME/.config/$name"
+    mkdir -p "$TARGET_HOME/.config/$name"
+    rsync -a --delete "$ROOT_DIR/configs/$name/." "$TARGET_HOME/.config/$name/"
     chown -R "$TARGET_USER:$TARGET_USER" "$TARGET_HOME/.config/$name"
   fi
 }
