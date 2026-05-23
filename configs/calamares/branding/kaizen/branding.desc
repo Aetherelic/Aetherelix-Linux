@@ -22,3 +22,9 @@ style:
   sidebarBackground: "#0b0d12"
   sidebarText: "#e5e9f0"
   sidebarTextSelect: "#88c0d0"
+
+# Required by Calamares 3.3+
+slideshow: []
+slideshowAPI: 1
+sidebar: widget
+navigation: widget
