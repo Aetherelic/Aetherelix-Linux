@@ -1,0 +1,120 @@
+* {
+    bg:          #080d10fb;
+    bg2:         #0f1a1df6;
+    bg3:         #122124f2;
+    fg:          #d7dbd2;
+    muted:       #8b9892;
+    subtle:      #5f6f6b;
+    accent:      #9db6ad;
+    accent2:     #c3ccb8;
+    rose:        #b9828d;
+    border:      #9db6ad66;
+
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+
+    width: 32%;
+    height: 44%;
+
+    background-color: @bg;
+    border: 1px;
+    border-color: @border;
+    border-radius: 28px;
+
+    padding: 18px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 13px;
+    padding: 0;
+}
+
+inputbar {
+    background-color: @bg2;
+    border: 1px;
+    border-color: #9db6ad38;
+    border-radius: 999px;
+
+    padding: 10px 16px;
+    spacing: 12px;
+
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @accent2;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "search apps";
+    placeholder-color: @muted;
+    cursor: text;
+}
+
+listview {
+    background-color: transparent;
+
+    columns: 1;
+    lines: 7;
+    fixed-height: true;
+
+    spacing: 7px;
+    scrollbar: false;
+
+    padding: 2px;
+}
+
+element {
+    background-color: transparent;
+    border: 1px;
+    border-color: transparent;
+    border-radius: 18px;
+
+    padding: 8px 12px;
+    spacing: 13px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: #9db6ad28;
+    border-color: #c3ccb86e;
+    text-color: @accent2;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 26px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+message {
+    background-color: @bg2;
+    border-radius: 16px;
+    padding: 10px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @fg;
+}

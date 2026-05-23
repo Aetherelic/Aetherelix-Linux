@@ -473,9 +473,3 @@ bind = SUPER ALT, N, exec, ~/.local/bin/aether-nvim-panel
 bind = SUPER, I, global, quickshell:dashboardToggle
 bind = SUPER SHIFT, I, global, quickshell:dashboardNext
 
-# AetherDeck ambient click-through overlay
-bind = SUPER ALT, I, global, quickshell:ambientToggle
-bind = SUPER ALT SHIFT, I, global, quickshell:ambientNext
-
-
-source = ~/.config/hypr/configs/monitors-local.conf

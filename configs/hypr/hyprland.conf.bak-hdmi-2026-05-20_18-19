@@ -477,5 +477,3 @@ bind = SUPER SHIFT, I, global, quickshell:dashboardNext
 bind = SUPER ALT, I, global, quickshell:ambientToggle
 bind = SUPER ALT SHIFT, I, global, quickshell:ambientNext
 
-
-source = ~/.config/hypr/configs/monitors-local.conf
