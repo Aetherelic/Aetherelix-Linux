@@ -191,6 +191,37 @@ DESKTOP
 }
 
 
+
+install_kaizen_profile_tools() {
+  mkdir -p /usr/local/bin /usr/share/applications
+
+  cp "$ROOT_DIR/scripts/kaizen-install-profile.sh" /usr/local/bin/kaizen-install-profile
+  chmod 755 /usr/local/bin/kaizen-install-profile
+
+  cat > /usr/share/applications/kaizen-install-gaming.desktop <<'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=Install Kaizen Gaming Profile
+Comment=Install Steam, Lutris, Wine, MangoHud, GameMode, and gaming tools
+Exec=kitty -e bash -lc "kaizen-install-profile gaming; echo; read -rp 'Press Enter to close...'"
+Icon=applications-games
+Terminal=false
+Categories=Game;System;
+DESKTOP
+
+  cat > /usr/share/applications/kaizen-install-productivity.desktop <<'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=Install Kaizen Productivity Profile
+Comment=Install office, development, and productivity tools
+Exec=kitty -e bash -lc "kaizen-install-profile productivity; echo; read -rp 'Press Enter to close...'"
+Icon=applications-office
+Terminal=false
+Categories=Office;System;
+DESKTOP
+}
+
+
 dnf install -y dnf-plugins-core git curl wget
 
 dnf install -y \
@@ -217,6 +248,7 @@ install_wallpapers
 install_kaizen_os_branding
 install_kaizen_update_command
 install_kaizen_welcome
+install_kaizen_profile_tools
 
 systemctl disable gdm.service 2>/dev/null || true
 systemctl enable sddm.service || true
