@@ -18,3 +18,5 @@ pamixer
 pavucontrol
 blueman
 NetworkManager-tui
+spice-vdagent
+qemu-guest-agent
