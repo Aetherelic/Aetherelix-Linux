@@ -1,20 +1,24 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-VISION_DIR="$HOME/Pictures/visions"
-WALL_SCRIPT="$HOME/.config/quickshell/components/wall/wall.sh"
+WALL_DIR="$HOME/.local/share/backgrounds/kaizen"
+CURRENT="$HOME/.config/hypr/current_wallpaper"
 
-if [ ! -d "$VISION_DIR" ]; then
-  notify-send "Random theme" "No ~/Pictures/visions folder found"
+mkdir -p "$HOME/.config/hypr"
+
+WALL="$(
+  find "$WALL_DIR" -maxdepth 1 -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) 2>/dev/null \
+    | shuf -n 1
+)"
+
+if [ -z "${WALL:-}" ]; then
+  notify-send "Random theme" "No Kaizen wallpapers found in $WALL_DIR" 2>/dev/null || true
   exit 1
 fi
 
-WALL="$(find "$VISION_DIR" -maxdepth 1 -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) | shuf -n 1)"
+cp "$WALL" "$CURRENT"
 
-if [ -z "$WALL" ]; then
-  notify-send "Random theme" "No wallpapers found in ~/Pictures/visions"
-  exit 1
-fi
+pkill swaybg 2>/dev/null || true
+swaybg -i "$CURRENT" -m fill >/tmp/kaizen-swaybg.log 2>&1 & disown
 
-bash "$WALL_SCRIPT" "$WALL"
-
-notify-send "Random theme applied" "$(basename "$WALL")"
+notify-send "Random theme" "Applied: $(basename "$WALL")" 2>/dev/null || true
