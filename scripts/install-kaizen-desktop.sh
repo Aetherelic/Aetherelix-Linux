@@ -133,6 +133,31 @@ UPDATE
 }
 
 
+
+install_kaizen_welcome() {
+  mkdir -p /usr/share/kaizen/welcome /usr/share/applications
+  cp -r "$ROOT_DIR/docs/welcome/." /usr/share/kaizen/welcome/
+
+  cat > /usr/local/bin/kaizen-welcome <<'WELCOME'
+#!/usr/bin/env bash
+xdg-open /usr/share/kaizen/welcome/index.html >/dev/null 2>&1 &
+WELCOME
+
+  chmod 755 /usr/local/bin/kaizen-welcome
+
+  cat > /usr/share/applications/kaizen-welcome.desktop <<'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=Welcome to Kaizen Linux
+Comment=Learn the basics of Kaizen Linux
+Exec=kaizen-welcome
+Icon=help-about
+Terminal=false
+Categories=System;Utility;
+DESKTOP
+}
+
+
 dnf install -y dnf-plugins-core git curl wget
 
 dnf install -y \
@@ -145,6 +170,7 @@ install_package_list "$ROOT_DIR/packages/base.txt"
 install_package_list "$ROOT_DIR/packages/desktop-common.txt"
 install_package_list "$ROOT_DIR/packages/display-manager.txt"
 install_package_list "$ROOT_DIR/packages/visual.txt"
+install_optional_package_list "$ROOT_DIR/packages/noobie-essentials.txt"
 install_package_list "$ROOT_DIR/packages/hyprland.txt"
 install_optional_package_list "$ROOT_DIR/packages/wallpaper-optional.txt"
 
@@ -157,6 +183,7 @@ copy_config_dir starship
 install_wallpapers
 install_kaizen_os_branding
 install_kaizen_update_command
+install_kaizen_welcome
 
 systemctl disable gdm.service 2>/dev/null || true
 systemctl enable sddm.service || true
