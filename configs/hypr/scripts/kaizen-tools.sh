@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 choice="$(
-  cat <<'MENU' | rofi -dmenu -i -p "Kaizen Tools"
+  cat <<'MENU' | rofi -dmenu -i -p "Kaizen Tools" -theme "$HOME/.config/rofi/kaizen-adaptive.rasi"
 Welcome to Kaizen
 Update Kaizen
 Wallpaper Picker
