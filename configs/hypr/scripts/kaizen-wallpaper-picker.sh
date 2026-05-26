@@ -3,6 +3,7 @@ set -euo pipefail
 
 WALL_DIR="$HOME/.local/share/backgrounds/kaizen"
 CURRENT="$HOME/.config/hypr/current_wallpaper"
+LOG="/tmp/kaizen-swaybg.log"
 
 mkdir -p "$WALL_DIR" "$HOME/.config/hypr"
 
@@ -17,9 +18,11 @@ CHOICE="$(
 
 SELECTED="$WALL_DIR/$CHOICE"
 
-cp "$SELECTED" "$CURRENT"
+rm -f "$CURRENT"
+ln -s "$SELECTED" "$CURRENT"
 
 pkill swaybg 2>/dev/null || true
-swaybg -i "$CURRENT" -m fill >/tmp/kaizen-swaybg.log 2>&1 & disown
+sleep 0.2
+swaybg -i "$SELECTED" -m fill >"$LOG" 2>&1 & disown
 
 notify-send "Kaizen Wallpaper" "Applied: $CHOICE" 2>/dev/null || true
