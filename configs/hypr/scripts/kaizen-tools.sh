@@ -6,6 +6,7 @@ Welcome to Kaizen
 Update Kaizen
 Wallpaper Picker
 Show Keybinds
+Keybind Help
 Install Gaming Profile
 Install Productivity Profile
 Open File Manager
@@ -31,8 +32,8 @@ case "$choice" in
     bash "$HOME/.config/hypr/scripts/kaizen-wallpaper-picker.sh"
     ;;
 
-  "Show Keybinds")
-    kitty -e bash -lc 'sed -n "1,180p" "$HOME/.config/hypr/scripts/export-keybind-cheatsheet.sh" 2>/dev/null || grep -n "bind =" "$HOME/.config/hypr/hyprland.conf"; echo; read -rp "Press Enter to close..."'
+  "Show Keybinds"|"Keybind Help")
+    kitty -e bash -lc 'bash "$HOME/.config/hypr/scripts/kaizen-keybinds.sh"; echo; read -rp "Press Enter to close..."'
     ;;
 
   "Install Gaming Profile")
