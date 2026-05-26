@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Kaizen Tools
+Comment=Beginner-friendly tools and shortcuts for Kaizen Linux
+Exec=bash -lc "$HOME/.config/hypr/scripts/kaizen-tools.sh"
+Icon=kaizen-linux
+Terminal=false
+Categories=System;Utility;
+Keywords=Kaizen;Tools;Update;Wallpaper;Help;Linux;
+StartupNotify=false
