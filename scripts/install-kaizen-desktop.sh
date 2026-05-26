@@ -265,4 +265,10 @@ if [ "${#OPTIONAL_FAILED_PACKAGES[@]}" -gt 0 ]; then
   printf ' - %s\n' "${OPTIONAL_FAILED_PACKAGES[@]}"
 fi
 
+
+if [ -d "$ROOT_DIR/configs/applications" ]; then
+  mkdir -p /usr/share/applications
+  install -m 0644 "$ROOT_DIR"/configs/applications/*.desktop /usr/share/applications/ 2>/dev/null || true
+fi
+
 printf '\nKaizen desktop install complete. Reboot, then choose Hyprland from the login screen.\n'
