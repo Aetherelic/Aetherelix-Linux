@@ -1,46 +1,35 @@
 #!/usr/bin/env bash
 
 cat <<'KEYBINDS'
-Kaizen Linux Keybinds
+Kaizen Linux — Help / Keybinds
 
-Core:
+Getting started:
+  SUPER + T              Open Kaizen Tools
   SUPER + Enter          Open terminal
   Alt + Space            Open app launcher
   SUPER + Q              Close active window
-  SUPER + F              Toggle fullscreen
-  SUPER + R              Reload Hyprland
   SUPER + L              Lock screen
+  SUPER + R              Reload Hyprland
 
-Kaizen:
-  SUPER + T              Open Kaizen Tools
-  SUPER + W              Open Kaizen Welcome
-  SUPER + Shift + A      Wallpaper picker
+Desktop:
+  SUPER + SHIFT + A      Wallpaper picker
   SUPER + N              Notification center
-  SUPER + Shift + N      Dismiss notifications
-
-Windows:
-  SUPER + Arrow          Move focus
-  SUPER + Shift + Arrow  Move window
+  SUPER + F              Toggle fullscreen
   SUPER + V              Toggle floating
-  SUPER + Alt + Arrow    Nudge floating window
 
 Workspaces:
   SUPER + 1-9            Switch workspace
-  SUPER + Shift + 1-9    Move window to workspace
+  SUPER + SHIFT + 1-9    Move window to workspace
 
-Screenshots:
-  SUPER + Print          Screenshot
-  SUPER + Shift + Print  Area screenshot
+Useful tools:
+  Kaizen Tools → Update Kaizen
+  Kaizen Tools → Wallpaper Picker
+  Kaizen Tools → Audio Settings
+  Kaizen Tools → Network Settings
+  Kaizen Tools → Install Gaming Profile
 
-Clipboard:
-  SUPER + C              Clipboard picker
-  SUPER + Shift + C      Clear clipboard
-
-Profiles:
-  SUPER + G              Gaming profile
-  SUPER + Shift + G      Leave gaming profile
-  SUPER + F12            Toggle gaming mode
-
-Power:
-  SUPER + Shift + L      Power menu
+Notes:
+  - Use Kaizen Tools if you are unsure where something is.
+  - Wallpaper changes regenerate the Kaizen theme files.
+  - Quickshell/AetherDeck are intentionally disabled for now.
 KEYBINDS
