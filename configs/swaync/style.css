@@ -151,3 +151,29 @@
   border-radius: 16px;
   margin: 8px;
 }
+
+/* Kaizen compact empty-state tuning */
+.control-center-list-placeholder {
+  opacity: 0.42;
+  color: rgba(244, 242, 255, 0.48);
+}
+
+.control-center-list-placeholder label {
+  color: rgba(244, 242, 255, 0.48);
+  font-size: 11px;
+}
+
+.control-center-list-placeholder image {
+  opacity: 0.55;
+  -gtk-icon-transform: scale(0.62);
+}
+
+.widget-title button {
+  padding: 3px 9px;
+  background: rgba(157, 124, 255, 0.10);
+}
+
+.widget-dnd {
+  padding: 6px 9px;
+  margin: 6px 8px;
+}
