@@ -1,16 +1,20 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 34,
+  "height": 38,
   "spacing": 8,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
 
   "modules-left": ["custom/logo", "hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": ["pulseaudio", "network", "memory", "cpu", "tray"],
 
   "custom/logo": {
-    "format": "Kaizen",
-    "tooltip": false
+    "format": "KAIZEN",
+    "tooltip": false,
+    "on-click": "kaizen-welcome"
   },
 
   "hyprland/workspaces": {
@@ -35,7 +39,8 @@
   "network": {
     "format-wifi": "NET {essid}",
     "format-ethernet": "NET wired",
-    "format-disconnected": "NET off"
+    "format-disconnected": "NET off",
+    "tooltip-format": "{ifname}"
   },
 
   "memory": {

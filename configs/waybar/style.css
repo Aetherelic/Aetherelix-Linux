@@ -3,8 +3,9 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
   font-size: 13px;
+  font-weight: 600;
   min-height: 0;
 }
 
@@ -14,53 +15,46 @@ window#waybar {
 }
 
 tooltip {
-  background: @kaizen_bg;
+  background: alpha(@kaizen_bg, 0.96);
   color: @kaizen_fg;
-  border: 1px solid @kaizen_border;
-  border-radius: 12px;
+  border: 1px solid alpha(@kaizen_accent, 0.45);
+  border-radius: 14px;
 }
 
-#workspaces,
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#network,
-#pulseaudio,
-#wireplumber,
-#backlight,
-#tray,
-#custom-launcher,
-#custom-power,
-#custom-notification,
-#custom-media,
-#window {
-  background: alpha(@kaizen_surface, 0.88);
+tooltip label {
   color: @kaizen_fg;
-  border: 1px solid alpha(@kaizen_border, 0.75);
-  border-radius: 14px;
-  padding: 5px 10px;
-  margin: 6px 4px;
+}
+
+#custom-logo {
+  background: linear-gradient(90deg, alpha(@kaizen_accent, 0.28), alpha(@kaizen_accent2, 0.14));
+  color: @kaizen_fg;
+  border: 1px solid alpha(@kaizen_accent, 0.55);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin: 3px 4px;
+  letter-spacing: 1px;
 }
 
 #workspaces {
+  background: alpha(@kaizen_surface, 0.78);
+  border: 1px solid alpha(@kaizen_border, 0.75);
+  border-radius: 999px;
   padding: 4px 6px;
+  margin: 3px 4px;
 }
 
 #workspaces button {
   background: transparent;
   color: @kaizen_muted;
-  border-radius: 10px;
-  padding: 3px 8px;
+  border-radius: 999px;
+  padding: 3px 10px;
   margin: 0 2px;
 }
 
 #workspaces button.active {
-  background: alpha(@kaizen_accent, 0.28);
+  background: alpha(@kaizen_accent, 0.35);
   color: @kaizen_fg;
-  border: 1px solid alpha(@kaizen_accent, 0.8);
+  box-shadow: inset 0 0 0 1px alpha(@kaizen_accent, 0.65);
 }
 
 #workspaces button:hover {
@@ -69,43 +63,54 @@ tooltip {
 }
 
 #clock {
+  background: alpha(@kaizen_surface, 0.82);
   color: @kaizen_accent2;
+  border: 1px solid alpha(@kaizen_accent2, 0.35);
+  border-radius: 999px;
+  padding: 6px 16px;
+  margin: 3px 4px;
 }
 
-#battery {
-  color: @kaizen_success;
+#pulseaudio,
+#network,
+#memory,
+#cpu,
+#tray {
+  background: alpha(@kaizen_surface, 0.78);
+  color: @kaizen_fg;
+  border: 1px solid alpha(@kaizen_border, 0.75);
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin: 3px 4px;
 }
 
-#battery.warning {
-  color: @kaizen_accent2;
+#pulseaudio {
+  color: @kaizen_accent;
 }
 
-#battery.critical {
-  color: @kaizen_danger;
+#pulseaudio.muted {
+  color: @kaizen_muted;
 }
 
 #network {
   color: @kaizen_accent2;
 }
 
-#pulseaudio,
-#wireplumber {
-  color: @kaizen_accent;
+#memory {
+  color: @kaizen_fg;
+}
+
+#cpu {
+  color: @kaizen_fg;
 }
 
 #tray {
-  padding: 5px 8px;
+  padding: 6px 10px;
 }
 
-#window {
-  color: @kaizen_muted;
-}
-
-#custom-launcher,
-#custom-notification {
-  color: @kaizen_accent;
-}
-
-#custom-power {
-  color: @kaizen_danger;
+#tray menu {
+  background: alpha(@kaizen_bg, 0.96);
+  color: @kaizen_fg;
+  border: 1px solid alpha(@kaizen_accent, 0.35);
+  border-radius: 12px;
 }
