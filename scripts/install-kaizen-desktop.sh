@@ -203,11 +203,7 @@ DESKTOP
 
 
 
-install_kaizen_profile_tools
-
-if [ -f "$ROOT_DIR/scripts/kaizen-quickshell-mode.sh" ]; then
-  install -m 0755 "$ROOT_DIR/scripts/kaizen-quickshell-mode.sh" /usr/local/bin/kaizen-quickshell-mode
-fi() {
+install_kaizen_profile_tools() {
   mkdir -p /usr/local/bin /usr/share/applications
 
   cp "$ROOT_DIR/scripts/kaizen-install-profile.sh" /usr/local/bin/kaizen-install-profile
