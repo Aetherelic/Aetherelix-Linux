@@ -203,7 +203,11 @@ DESKTOP
 
 
 
-install_kaizen_profile_tools() {
+install_kaizen_profile_tools
+
+if [ -f "$ROOT_DIR/scripts/kaizen-quickshell-mode.sh" ]; then
+  install -m 0755 "$ROOT_DIR/scripts/kaizen-quickshell-mode.sh" /usr/local/bin/kaizen-quickshell-mode
+fi() {
   mkdir -p /usr/local/bin /usr/share/applications
 
   cp "$ROOT_DIR/scripts/kaizen-install-profile.sh" /usr/local/bin/kaizen-install-profile
@@ -248,6 +252,7 @@ install_package_list "$ROOT_DIR/packages/visual.txt"
 install_optional_package_list "$ROOT_DIR/packages/noobie-essentials.txt"
 install_package_list "$ROOT_DIR/packages/hyprland.txt"
 install_optional_package_list "$ROOT_DIR/packages/wallpaper-optional.txt"
+install_optional_package_list "$ROOT_DIR/packages/quickshell-experimental.txt"
 
 copy_config_dir hypr
 copy_config_dir kitty
@@ -255,11 +260,16 @@ copy_config_dir rofi
 copy_config_dir waybar
 copy_config_dir fastfetch
 copy_config_dir starship
+copy_config_dir quickshell
 install_wallpapers
 install_kaizen_os_branding
 install_kaizen_update_command
 install_kaizen_welcome
 install_kaizen_profile_tools
+
+if [ -f "$ROOT_DIR/scripts/kaizen-quickshell-mode.sh" ]; then
+  install -m 0755 "$ROOT_DIR/scripts/kaizen-quickshell-mode.sh" /usr/local/bin/kaizen-quickshell-mode
+fi
 
 systemctl disable gdm.service 2>/dev/null || true
 systemctl enable sddm.service || true
