@@ -4,7 +4,7 @@
   border: none;
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   min-height: 0;
 }
@@ -16,72 +16,100 @@ window#waybar {
 
 tooltip {
   background: alpha(@kaizen_bg, 0.96);
-  color: @kaizen_fg;
-  border: 1px solid alpha(@kaizen_accent, 0.45);
+  border: 1px solid alpha(@kaizen_accent, 0.35);
   border-radius: 14px;
+  color: @kaizen_fg;
 }
 
 tooltip label {
+  padding: 8px 10px;
   color: @kaizen_fg;
+}
+
+#custom-logo,
+#workspaces,
+#custom-dynamic-island,
+#pulseaudio,
+#network,
+#memory,
+#cpu,
+#tray,
+#custom-notification {
+  background: alpha(@kaizen_bg, 0.62);
+  border: 1px solid alpha(@kaizen_accent, 0.18);
+  box-shadow: 0 0 18px alpha(@kaizen_bg, 0.35);
+  color: @kaizen_fg;
+  padding: 5px 10px;
+  margin: 5px 4px;
+  border-radius: 999px;
 }
 
 #custom-logo {
-  background: linear-gradient(90deg, alpha(@kaizen_accent, 0.28), alpha(@kaizen_accent2, 0.14));
   color: @kaizen_fg;
-  border: 1px solid alpha(@kaizen_accent, 0.55);
-  border-radius: 999px;
-  padding: 6px 14px;
-  margin: 3px 4px;
   letter-spacing: 1px;
+  padding-left: 13px;
+  padding-right: 13px;
+  border-color: alpha(@kaizen_accent, 0.35);
+  background: linear-gradient(135deg, alpha(@kaizen_accent, 0.28), alpha(@kaizen_accent2, 0.12));
 }
 
 #workspaces {
-  background: alpha(@kaizen_surface, 0.78);
-  border: 1px solid alpha(@kaizen_border, 0.75);
-  border-radius: 999px;
   padding: 4px 6px;
-  margin: 3px 4px;
 }
 
 #workspaces button {
   background: transparent;
   color: @kaizen_muted;
+  padding: 2px 9px;
+  margin: 0 1px;
   border-radius: 999px;
-  padding: 3px 10px;
-  margin: 0 2px;
-}
-
-#workspaces button.active {
-  background: alpha(@kaizen_accent, 0.35);
-  color: @kaizen_fg;
-  box-shadow: inset 0 0 0 1px alpha(@kaizen_accent, 0.65);
+  transition: all 180ms ease;
 }
 
 #workspaces button:hover {
-  background: alpha(@kaizen_accent2, 0.22);
+  background: alpha(@kaizen_accent2, 0.16);
   color: @kaizen_fg;
 }
 
-#clock {
-  background: alpha(@kaizen_surface, 0.82);
+#workspaces button.active {
+  background: linear-gradient(135deg, alpha(@kaizen_accent, 0.35), alpha(@kaizen_accent2, 0.18));
+  color: @kaizen_fg;
+  border: 1px solid alpha(@kaizen_accent, 0.35);
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+#workspaces button.urgent {
+  background: alpha(@kaizen_danger, 0.28);
+  color: @kaizen_fg;
+}
+
+#custom-dynamic-island {
+  background: alpha(@kaizen_bg, 0.78);
+  border: 1px solid alpha(@kaizen_accent, 0.28);
+  color: @kaizen_fg;
+  padding: 6px 22px;
+  margin: 5px 10px;
+  min-width: 330px;
+  box-shadow: 0 0 24px alpha(@kaizen_bg, 0.45);
+}
+
+#custom-dynamic-island.playing {
   color: @kaizen_accent2;
-  border: 1px solid alpha(@kaizen_accent2, 0.35);
-  border-radius: 999px;
-  padding: 6px 16px;
-  margin: 3px 4px;
+  border-color: alpha(@kaizen_accent2, 0.42);
 }
 
-#pulseaudio,
-#network,
-#memory,
-#cpu,
-#tray {
-  background: alpha(@kaizen_surface, 0.78);
+#custom-dynamic-island.paused {
+  color: @kaizen_muted;
+  border-color: alpha(@kaizen_muted, 0.30);
+}
+
+#custom-dynamic-island.window {
   color: @kaizen_fg;
-  border: 1px solid alpha(@kaizen_border, 0.75);
-  border-radius: 999px;
-  padding: 6px 12px;
-  margin: 3px 4px;
+}
+
+#custom-dynamic-island.idle {
+  color: @kaizen_accent2;
 }
 
 #pulseaudio {
@@ -96,21 +124,33 @@ tooltip label {
   color: @kaizen_accent2;
 }
 
-#memory {
-  color: @kaizen_fg;
-}
-
+#memory,
 #cpu {
   color: @kaizen_fg;
 }
 
+#custom-notification {
+  color: @kaizen_accent;
+}
+
 #tray {
-  padding: 6px 10px;
+  padding-left: 10px;
+  padding-right: 12px;
 }
 
 #tray menu {
   background: alpha(@kaizen_bg, 0.96);
+  border: 1px solid alpha(@kaizen_accent, 0.28);
+  border-radius: 14px;
+  padding: 8px;
+}
+
+#tray menuitem {
+  border-radius: 10px;
+  padding: 6px 10px;
   color: @kaizen_fg;
-  border: 1px solid alpha(@kaizen_accent, 0.35);
-  border-radius: 12px;
+}
+
+#tray menuitem:hover {
+  background: alpha(@kaizen_accent, 0.14);
 }

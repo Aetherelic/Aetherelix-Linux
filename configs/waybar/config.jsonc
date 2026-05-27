@@ -1,15 +1,29 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 38,
+  "height": 43,
   "spacing": 8,
-  "margin-top": 6,
+  "margin-top": 5,
   "margin-left": 10,
   "margin-right": 10,
 
-  "modules-left": ["custom/logo", "hyprland/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "memory", "cpu", "tray"],
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "custom/dynamic-island"
+  ],
+
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "memory",
+    "cpu",
+    "custom/notification",
+    "tray"
+  ],
 
   "custom/logo": {
     "format": "KAIZEN",
@@ -19,28 +33,38 @@
 
   "hyprland/workspaces": {
     "format": "{id}",
+    "on-click": "activate",
     "persistent-workspaces": {
       "*": 5
-    }
+    },
+    "sort-by-number": true
   },
 
-  "clock": {
-    "format": "{:%a %d %b  %H:%M}",
-    "tooltip-format": "{:%A, %d %B %Y}"
+  "custom/dynamic-island": {
+    "exec": "$HOME/.config/waybar/scripts/dynamic-island.sh",
+    "return-type": "json",
+    "interval": 2,
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "playerctl play-pause 2>/dev/null || true",
+    "on-click-right": "playerctl next 2>/dev/null || true",
+    "escape": true
   },
 
   "pulseaudio": {
     "format": "VOL {volume}%",
     "format-muted": "MUTED",
     "scroll-step": 5,
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "tooltip-format": "Volume: {volume}%"
   },
 
   "network": {
     "format-wifi": "NET {essid}",
     "format-ethernet": "NET wired",
     "format-disconnected": "NET off",
-    "tooltip-format": "{ifname}"
+    "tooltip-format": "{ifname}",
+    "on-click": "kitty -e nmtui"
   },
 
   "memory": {
@@ -49,6 +73,17 @@
 
   "cpu": {
     "format": "CPU {usage}%"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "NOTIF",
+    "return-type": "json",
+    "exec-if": "command -v swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 
   "tray": {
