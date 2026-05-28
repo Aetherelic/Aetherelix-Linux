@@ -8,6 +8,7 @@ ShellRoot {
     property alias zyuTheme: zyuTheme
     property bool musicVisible: false
     property bool wifiVisible: false
+    property bool kaizenPanelVisible: false
 
     readonly property string configPath: Quickshell.env("HOME") + "/.config/quickshell"
     readonly property string cacheThemePath: Quickshell.env("HOME") + "/.cache/kaizen/theme/colors.json"
@@ -58,5 +59,9 @@ ShellRoot {
 
     Loader {
         source: compPath + "/Bar/bar.qml"
+    }
+
+    Loader {
+        source: compPath + "/KaizenPanel.qml"
     }
 }

@@ -340,7 +340,7 @@ Variants {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: Hyprland.dispatch("exec kaizen-welcome")
+                        onClicked: root.kaizenPanelVisible = !root.kaizenPanelVisible
                     }
                 }
             }
